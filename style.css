@@ -1,0 +1,17 @@
+ul.article-list {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.article-list li {
+    width: 100%;
+    list-style: none outside none;
+    margin: 0;
+    padding: 20px 0;
+    border-bottom: solid 1px grey;
+}
+
+li .summary {
+    display: none;
+}
