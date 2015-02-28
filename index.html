@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en" ng-app="app"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,6 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
@@ -24,13 +23,11 @@
         </div>
         <div class="navbar-collapse collapse navbar-inverse-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Active</a></li>
-                <li><a href="#">Link</a></li>
             </ul>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" ng-controller="ArticleCtrl as articles">
         <div class="bs-docs-section clearfix">
             <div id="wrapper" class="row">
                 <div class="col-lg-12">
@@ -38,87 +35,25 @@
                         <li>
                             <h3><i class="fa fa-newspaper-o"></i> Nouveaux articles</h3>
                         </li>
-                        <li id="1" class="slidable">
-                            <div class="title"><strong>Titre de l'article 1</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="2" class="slidable">
-                            <div class="title"><strong>Titre de l'article 2</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="3" class="slidable">
-                            <div class="title"><strong>Titre de l'article 3</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="4" class="slidable">
-                            <div class="title"><strong>Titre de l'article 4</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="5" class="slidable">
-                            <div class="title"><strong>Titre de l'article 5</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                        <li id="{{key}}" class="slidable" ng-repeat="(key, article) in articles.data">
+                            <div class="title"><strong>{{article.title}}</strong></div>
+                            <div class="summary">{{article.summary}}</div>
                         </li>
                     </ul>
                     <ul class="full-articles">
-                        <li id="article1" class="article">
-                            <h1>Titre de l'article 1</h1>
-                            <span class="label label-primary">Tag 1</span>
-                            <span class="label label-primary">Tag 2</span>
-                            <span class="label label-primary">Tag 3</span>
-                            <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="article2" class="article">
-                            <h1>Titre de l'article 2</h1>
-                            <span class="label label-primary">Tag 1</span>
-                            <span class="label label-primary">Tag 2</span>
-                            <span class="label label-primary">Tag 3</span>
-                            <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="article3" class="article">
-                            <h1>Titre de l'article 3</h1>
-                            <span class="label label-primary">Tag 1</span>
-                            <span class="label label-primary">Tag 2</span>
-                            <span class="label label-primary">Tag 3</span>
-                            <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="article4" class="article">
-                            <h1>Titre de l'article 4</h1>
-                            <span class="label label-primary">Tag 1</span>
-                            <span class="label label-primary">Tag 2</span>
-                            <span class="label label-primary">Tag 3</span>
-                            <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="article5" class="article">
-                            <h1>Titre de l'article 5</h1>
-                            <span class="label label-primary">Tag 1</span>
-                            <span class="label label-primary">Tag 2</span>
-                            <span class="label label-primary">Tag 3</span>
-                            <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                        <li id="article{{key}}" class="article" ng-repeat="(key, article) in articles.data">
+                            <h1>{{article.title}}</h1>
+                            <span class="label label-primary" ng-repeat="tag in article.tags">{{tag}}</span>
+                            <div class="content">{{article.content}}</div>
                         </li>
                     </ul>
                     <ul class="favourite-articles">
                         <li >
                             <h3><i class="fa fa-star"></i> Articles favoris</h3>
                         </li>
-                        <li id="favourite1" article-number="1" class="slidable favourite-article">
-                            <div class="title"><strong>Titre de l'article 1</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="favourite2" article-number="2" class="slidable favourite-article" >
-                            <div class="title"><strong>Titre de l'article 2</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="favourite3" article-number="3" class="slidable favourite-article">
-                            <div class="title"><strong>Titre de l'article 3</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="favourite4" article-number="4" class="slidable favourite-article">
-                            <div class="title"><strong>Titre de l'article 4</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-                        </li>
-                        <li id="favourite5" article-number="5" class="slidable favourite-article">
-                            <div class="title"><strong>Titre de l'article 5</strong></div>
-                            <div class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                        <li id="favourite{{key}}" article-number="{{key}}" class="slidable favourite-article" ng-repeat="(key, article) in articles.data">
+                            <div class="title"><strong>{{article.title}}</strong></div>
+                            <div class="summary">{{article.summary}}</div>
                         </li>
                     </ul>
                 </div>
@@ -129,9 +64,9 @@
     <div id="footer">
         <div class="col-xs-12 navbar-default navbar-fixed-bottom">
             <div class="row" id="bottomNav">
-                <div class="col-xs-4 text-center"><a href="#"><i id="back-button" class="fa fa-chevron-left"></i></div>
-                <div class="col-xs-4 text-center"><a href="#"><i class="fa fa-home"></i></div>
-                <div class="col-xs-4 text-center"><a href="#"><i id="favourite-button" class="fa fa-star"></i></div>
+                <div class="col-xs-4 text-center"><a href="#"><i id="back-button" class="fa fa-chevron-left"></i></a></div>
+                <div class="col-xs-4 text-center"><a href="#"><i id="home-button" class="fa fa-home"></i></a></div>
+                <div class="col-xs-4 text-center"><a href="#"><i id="favourite-button" class="fa fa-star"></i></a></div>
             </div>
         </div>
     </div>
@@ -141,6 +76,7 @@
     <script src="jquery-ui-1.11.3/jquery-ui.min.js"></script>
     <script src="hammerjs/hammer.min.js"></script>
     <script src="jquery.hammer/jquery.hammer.js"></script>
+    <script src="angular/angular.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

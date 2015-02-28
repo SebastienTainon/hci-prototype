@@ -64,6 +64,7 @@ ul.full-articles li {
 
 div.content {
     margin-top: 10px;
+    white-space: pre-line;
 }
 
 .col-lg-12 {
@@ -100,3 +101,6 @@ div.content {
     color:#fff;
 }
 
+.label-primary {
+    margin-right: 2px;
+}
