@@ -22,7 +22,7 @@ $(function() {
         } else {
         	$(this).find('.summary').slideUp({
                 complete: function() {
-                    $self.data('height', $self.css('height'));
+                    $self.attr('data-height', $self.css('height'));
                 }
             });
         } 	
