@@ -55,7 +55,9 @@ $(function() {
     $('ul.favourite-articles li.slidable').hammer().bind("panleft",  function(ev) {
         $(this).css('height', $(this).attr('data-height'));
         $(this).animate({backgroundColor: "red"}, { duration: 400, queue: false });
-        $(this).hide("slide", { direction: "left" }, 700);
+        $(this).hide("slide", { direction: "left" }, 700, function(ev) {
+            $(this).css('height', '');
+        });
     });
 
 
@@ -65,6 +67,7 @@ $(function() {
             $('ul.favourite-articles').hide();
             var id = $(this).attr('article-number');
             $('#article' + id).show("slide", { direction: "left" }, 200);
+            $(this).css('height', '');
             $(this).show();
         });
     });
@@ -77,6 +80,7 @@ $(function() {
             var id = $(this).attr('id');
             $('#article' + id).show("slide", { direction: "left" }, 200);
             $('#favourite' + id).show();
+            $('#favourite' + id).attr('data-height', $(this).css('height'));
         });
     });
 
